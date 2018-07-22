@@ -125,6 +125,7 @@ public class JPFreeSlots extends JPanel {
 
     //Metodo para Jugar
     private void Jugar() {
+        
         SwingWorker<String, Void> jugar = new SwingWorker<String, Void>() {
             @Override
             protected String doInBackground() throws Exception {
@@ -158,6 +159,12 @@ public class JPFreeSlots extends JPanel {
                 
                 jl_ganadov.setText(String.valueOf(tmp_ganado));
                 jl_saldov.setText(String.valueOf(int_saldo));
+                
+                if (int_saldo < 5) {
+                    JOptionPane.showMessageDialog(null, "No tienes fondos");
+                    System.exit(0);
+                }
+                
             }
         };
 
