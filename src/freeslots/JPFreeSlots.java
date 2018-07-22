@@ -51,7 +51,6 @@ public class JPFreeSlots extends JPanel {
         this.setMinimumSize(bg_size);
         this.setSize(bg_size);
         this.setLayout(new MigLayout());
-        this.setBackground(null);
 
         icons = new ArrayList<>();
         int_saldo = 200;
