@@ -26,16 +26,16 @@ public class JFVentana extends JFrame{
         JPFreeSlots jp = new JPFreeSlots();
         
         //Iniciar el JFrame
-        this.setSize(1440, 690);
+        this.setSize(jp.getWidth(), jp.getHeight());
         this.setTitle("FreeSlots");
         this.setLocationRelativeTo(null);
         this.setLayout(null);
-
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         //Agregar Panel        
-       this.getContentPane().add(jp);
+        this.getContentPane().add(jp);
         
+        //Deshabilitar el redimensionamiento del JFrame
         this.setResizable(false);
         
     }

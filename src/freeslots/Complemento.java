@@ -6,30 +6,39 @@
 package freeslots;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author andre
  */
-public  class Complemento {
-    
+//Clase con metodos complementarios
+public class Complemento {
+
     /*Metodo para sacar un numero random con probabilidades
         1 = 25%
         2 = 20%
         3 = 15%
         4 = 10%
         5 = 5%
-    */
-    
-    public Complemento(){
+     */
+    public Complemento() {
     }
-    
-    public static int getRandomImageType(){
+
+    /*
+        Metodo para retornar un valor entre 1 y 5
+        con las siguientes probabilidades
+            
+            1 => 25/75
+            2 => 20/75
+            3 => 15/75
+            4 => 10/75
+            5 => 5/75
+     */
+    public static int getRandomImageType() {
         int random = (int) (Math.random() * 75);
-        if (random < 25){
+        if (random < 25) {
             return 1;
-        } else if (random < 45){
+        } else if (random < 45) {
             return 2;
         } else if (random < 60) {
             return 3;
@@ -39,8 +48,9 @@ public  class Complemento {
             return 5;
         }
     }
-    
-    //Metodo para validar si hay iguales
+
+    //Metodo para validar si hay iguales utilizando un ArrayList de MICon
+    //retornando el total ganado
     public static int validarIconos(ArrayList<MIcon> array_icons) {
         int tmp[] = new int[]{0, 0, 0, 0};
         if ((array_icons.get(0).getType() == 1) && (array_icons.get(1).getType() == 1) && (array_icons.get(2).getType() == 1) && (array_icons.get(3).getType() == 1) && (array_icons.get(4).getType() == 1)) {
@@ -284,7 +294,7 @@ public  class Complemento {
         } else if ((array_icons.get(17).getType() == 5) && (array_icons.get(18).getType() == 5) && (array_icons.get(19).getType() == 5)) {
             tmp[3] = 5 * 3;
         }
-        
+
         return (tmp[0] + tmp[1] + tmp[2] + tmp[3]);
     }
 }

@@ -13,18 +13,33 @@ import javax.swing.JLabel;
  *
  * @author andre
  */
-public class MIcon extends JLabel{
+//Clase para crear iconos aleatorios en base a 5 iconos
+//con la capacidad de adaptarse con parametros de altura y ancho
+public class MIcon extends JLabel {
+
+    //Atributo que contiene el identificador del icono
     private int icon_type;
-    
-    public MIcon(int x, int y){
+
+    //Constructor de la clase con parametros de 
+    //x ancho
+    //y alto
+    public MIcon(int x, int y) {
+
+        //Crea un JLabel y despues se le asigna un Icono
         super.setIcon(selectIcon(x, y));
     }
-    
-    private ImageIcon getRandomImage(){
+
+    //Metodo que retorna un ImageIcon de forma aleatoria
+    //y establece el identificador de imageicon
+    private ImageIcon getRandomImage() {
+
+        //Identificador del tipo de icono
         int i = Complemento.getRandomImageType();
         this.icon_type = i;
+
+        //Creacion del Image icon
         ImageIcon tmp_icon;
-        switch(i){
+        switch (i) {
             case 1:
                 tmp_icon = new ImageIcon("1.png");
                 break;
@@ -41,21 +56,23 @@ public class MIcon extends JLabel{
                 tmp_icon = new ImageIcon("5.png");
                 break;
         }
-        
+
         return tmp_icon;
     }
-    
-    
-    private ImageIcon selectIcon(int x, int y){        
+
+    //Metodo utilizado para instanciar la clase redimencionando altura y ancho
+    private ImageIcon selectIcon(int x, int y) {
         return new ImageIcon(getRandomImage().getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH));
     }
-    
-    public void changeIcon(int x, int y){
+
+    //Metodo utilizado para cambiar el icono asociado al JLabel
+    public void changeIcon(int x, int y) {
         this.setIcon(new ImageIcon(getRandomImage().getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH)));
     }
-    
-    public int getType(){
+
+    //Metodo para obtener el identificador del icono asociado
+    public int getType() {
         return this.icon_type;
     }
-    
+
 }
